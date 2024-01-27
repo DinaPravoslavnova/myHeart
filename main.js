@@ -55,7 +55,7 @@ function fillMatrix() {
       } else if (value === 2) {
         cell.style.backgroundColor = 'blue';
       }
-    }, index * 30);
+    }, index * 20);
   });
 }
 
