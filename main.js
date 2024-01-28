@@ -25,7 +25,7 @@ button.classList.add('button');
 button.textContent = 'Show image';
 document.body.append(button);
 
-function displayEmptyMatrix() {
+const displayEmptyMatrix = () => {
   const container = document.querySelector('.container');
 
   matrix.forEach((row) => {
@@ -39,11 +39,11 @@ function displayEmptyMatrix() {
 
     container.append(rowDiv);
   });
-}
+};
 
 displayEmptyMatrix();
 
-function fillMatrix() {
+const fillMatrix = () => {
   const cells = document.querySelectorAll('.cell');
 
   cells.forEach((cell, index) => {
@@ -58,7 +58,7 @@ function fillMatrix() {
       }
     }, index * 20);
   });
-}
+};
 
 button.addEventListener('click', function () {
   fillMatrix();
