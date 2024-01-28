@@ -16,31 +16,32 @@ const matrix = [
   [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
 
+const container = document.createElement('div');
+container.classList.add('container');
+document.body.append(container);
+
+const button = document.createElement('button');
+button.classList.add('button');
+button.textContent = 'Show image';
+document.body.append(button);
+
 function displayEmptyMatrix() {
   const container = document.querySelector('.container');
-  container.innerHTML = '';
 
   matrix.forEach((row) => {
     const rowDiv = document.createElement('div');
-    rowDiv.classList.add('row');
 
     row.forEach(() => {
       const cellDiv = document.createElement('div');
       cellDiv.classList.add('cell');
-      rowDiv.appendChild(cellDiv);
+      rowDiv.append(cellDiv);
     });
 
-    container.appendChild(rowDiv);
+    container.append(rowDiv);
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const container = document.createElement('div');
-  container.classList.add('container');
-  document.body.appendChild(container);
-
-  displayEmptyMatrix();
-});
+displayEmptyMatrix();
 
 function fillMatrix() {
   const cells = document.querySelectorAll('.cell');
@@ -59,12 +60,6 @@ function fillMatrix() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const button = document.createElement('button');
-  button.classList.add('button');
-  button.textContent = 'Show image';
-  button.addEventListener('click', function () {
-    fillMatrix();
-  });
-  document.body.appendChild(button);
+button.addEventListener('click', function () {
+  fillMatrix();
 });
